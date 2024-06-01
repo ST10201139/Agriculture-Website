@@ -1,0 +1,116 @@
+﻿/* authpages.css */
+.auth-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: whitesmoke;
+    padding: 20px;
+}
+
+    .auth-page .auth-box {
+        width: 100%;
+        max-width: 35rem;
+        margin: auto;
+        backdrop-filter: blur(16px) saturate(180%);
+        -webkit-backdrop-filter: blur(16px) saturate(180%);
+        background-color: rgba(11, 15, 13, 0.582);
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.125);
+        padding: 30px 25px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    .auth-page .logo-container {
+        margin-bottom: 20px;
+    }
+
+    .auth-page .logo {
+        width: 150px; /* Increased size */
+        height: auto;
+    }
+
+    .auth-page .headingsContainer {
+        text-align: center;
+    }
+
+        .auth-page .headingsContainer p {
+            color: gray;
+        }
+
+    .auth-page .mainContainer {
+        padding: 16px;
+    }
+
+    .auth-page .form-floating .form-control {
+        width: 100%;
+        margin: 10px 0;
+        border-radius: 5px;
+        padding: 15px 18px;
+        box-sizing: border-box;
+    }
+
+        .auth-page .form-floating .form-control:focus ~ label,
+        .auth-page .form-floating .form-control:not(:placeholder-shown) ~ label {
+            display: none;
+        }
+
+    .auth-page .subcontainer {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+        .auth-page .subcontainer a {
+            font-size: 16px;
+            margin-bottom: 12px;
+        }
+
+    .auth-page span.forgotpsd a {
+        float: right;
+        color: whitesmoke;
+        padding-top: 16px;
+    }
+
+    .auth-page .forgotpsd a {
+        color: rgb(74, 146, 235);
+    }
+
+        .auth-page .forgotpsd a:link {
+            text-decoration: none;
+        }
+
+    .auth-page .register {
+        color: white;
+        text-align: center;
+    }
+
+        .auth-page .register a {
+            color: rgb(74, 146, 235);
+        }
+
+            .auth-page .register a:link {
+                text-decoration: none;
+            }
+
+    /* Change the color of the labels to black */
+    .auth-page label {
+        color: black;
+    }
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 600px) {
+    .auth-page .auth-box {
+        width: 100%;
+        max-width: 25rem;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .auth-page .auth-box {
+        width: 100%;
+        max-width: 20rem;
+    }
+}

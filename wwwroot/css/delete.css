@@ -1,0 +1,134 @@
+﻿/* General styling */
+body {
+    background-color: #fff !important;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Container for the delete page */
+.delete-page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    padding: 20px;
+}
+
+    /* Box styling for the delete confirmation */
+    .delete-page-container .delete-box {
+        background: none !important; /* Ensure no background is set */
+        background-color: #fff !important; /* Override any background settings */
+        padding: 30px; /* Adjusted padding */
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        max-width: 600px;
+        width: 100%;
+        animation: fadeInUp 1s ease-in-out;
+        border: 2px solid #e74c3c;
+    }
+
+/* Heading styles */
+h1 {
+    font-size: 2rem; /* Adjusted font size */
+    color: #e74c3c;
+    margin-bottom: 20px;
+}
+
+h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 20px; /* Adjusted margin */
+}
+
+h4 {
+    font-size: 1.5rem; /* Adjusted font size */
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Product details styles */
+.product-details {
+    text-align: left;
+}
+
+    .product-details dt {
+        font-weight: bold;
+        margin-bottom: 5px; /* Added margin */
+    }
+
+    .product-details dd {
+        margin-bottom: 10px; /* Adjusted margin */
+        padding-left: 5px; /* Adjusted padding */
+    }
+
+/* Form actions */
+.form-actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+/* Button styles */
+.btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    transition: background 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn-danger {
+    background: #e74c3c !important;
+    color: white !important;
+    border: none !important;
+}
+
+    .btn-danger:hover {
+        background: #c0392b !important;
+        transform: scale(1.05);
+    }
+
+.btn-secondary {
+    background: #7f8c8d !important;
+    color: white !important;
+    border: none !important;
+}
+
+    .btn-secondary:hover {
+        background: #95a5a6 !important;
+        transform: scale(1.05);
+    }
+
+/* Animation for form container */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    .delete-box {
+        padding: 20px;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .btn {
+        margin-bottom: 10px;
+        width: 100%;
+    }
+}

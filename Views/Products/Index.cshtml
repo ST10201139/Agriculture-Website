@@ -1,0 +1,53 @@
+﻿@model IEnumerable<AgriConnectPlatformProject.Models.Products>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Products</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary create-btn">Create New</a>
+</p>
+
+<div class="table-responsive">
+    <table class="table table-striped table-bordered custom-table">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Name)</th>
+                <th>@Html.DisplayNameFor(model => model.Category)</th>
+                <th>@Html.DisplayNameFor(model => model.ProductionDate)</th>
+                @if (User.IsInRole("Super Admin"))
+                {
+                    <th>@Html.DisplayNameFor(model => model.FarmerId)</th>
+                }
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td data-label="Name">@Html.DisplayFor(modelItem => item.Name)</td>
+                    <td data-label="Category">@Html.DisplayFor(modelItem => item.Category)</td>
+                    <td data-label="Production Date">@Html.DisplayFor(modelItem => item.ProductionDate)</td>
+                    @if (User.IsInRole("Super Admin"))
+                    {
+                        <td data-label="Farmer ID">@Html.DisplayFor(modelItem => item.FarmerId)</td>
+                    }
+                    <td data-label="Actions">
+                        <div class="btn-group" role="group">
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary" title="Edit"><i class="fas fa-edit"></i></a>
+                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info" title="Details"><i class="fas fa-info-circle"></i></a>
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger" title="Delete"><i class="fas fa-trash-alt"></i></a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+}

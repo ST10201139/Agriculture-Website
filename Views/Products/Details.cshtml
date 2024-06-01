@@ -1,0 +1,43 @@
+﻿@model AgriConnectPlatformProject.Models.Products
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/details.css" />
+</head>
+<body>
+    <div class="details-page-container">
+        <div class="details-box">
+            <h1>Product Details</h1>
+            <div class="details-content">
+                <h4>Product Information</h4>
+                <hr />
+                <dl class="row">
+                    <dt class="col-sm-4">Name:</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.Name)</dd>
+                    <dt class="col-sm-4">Category:</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.Category)</dd>
+                    <dt class="col-sm-4">Production Date:</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.ProductionDate)</dd>
+                    @if (User.IsInRole("Super Admin"))
+                    {
+                        <dt class="col-sm-4">Farmer ID:</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.FarmerId)</dd>
+                    }
+                </dl>
+                <div class="form-actions">
+                    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary">Edit</a>
+                    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

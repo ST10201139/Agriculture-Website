@@ -1,0 +1,94 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - AgriConnectPlatform</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/Styles.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="auth-page">
+        <!-- Welcome Section -->
+        <section id="welcome" class="welcome-section">
+            <div class="container text-center">
+                <h1 class="display-4 text-white animate-bounce">Welcome to AgriCulture</h1>
+                <p class="lead" style="color: white;">Empowering farmers and enhancing agricultural productivity</p>
+                <a href="#about" class="btn btn-primary mt-3">Learn More</a>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <div id="about" class="container mt-5">
+            <h2 class="text-center mb-4">About AgriCulture</h2>
+            <p class="lead text-center">AgriCulture is dedicated to empowering farmers and enhancing agricultural productivity. We are committed to providing high-quality agricultural products to meet the demands of consumers worldwide.</p>
+            <p class="lead text-center">Below are some of the products farmers have:</p>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="~/images/crisp-head-lettuce.jpg" class="card-img-top" alt="Lettuce" />
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Lettuce</h5>
+                            <p class="card-text">Fresh, crisp lettuce grown with care on our farms.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="~/images/download (1).jpg" class="card-img-top" alt="Mealies" />
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Mealies (Corn)</h5>
+                            <p class="card-text">Juicy mealies harvested at the peak of ripeness.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="~/images/gettyimages-1734160670-0157c2daf8e841d6a783b38aedc51aa8.jpg" class="card-img-top" alt="Rice" />
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Rice</h5>
+                            <p class="card-text">Premium rice cultivated sustainably for your table.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Our Impact Section -->
+        <div id="impact" class="container mt-5">
+            <h2 class="text-center mb-4">Our Impact</h2>
+            <p class="lead text-center">At AgriCulture, we believe in making a difference. Our initiatives and programs have positively impacted the lives of thousands of farmers and their communities. Here are some of our key achievements:</p>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="impact-box">
+                        <h3 class="text-center">10,000+</h3>
+                        <p class="text-center">Farmers Empowered</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="impact-box">
+                        <h3 class="text-center">5 Million+</h3>
+                        <p class="text-center">Tons of Produce Harvested</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="impact-box">
+                        <h3 class="text-center">20+</h3>
+                        <p class="text-center">Communities Transformed</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @section Scripts {
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/welcomeAnimation.js" asp-append-version="true"></script>
+    }
+</body>
+</html>

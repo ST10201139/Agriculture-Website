@@ -1,0 +1,130 @@
+﻿@using AgriConnectPlatformProject.Areas.Identity.Data
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<AgriConnectPlatformProjectUser> SignInManager
+@inject UserManager<AgriConnectPlatformProjectUser> UserManager
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - AgriConnectPlatformProject</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/authpages.css" />
+    <link rel="stylesheet" href="~/css/Styles.css" />
+    <link rel="stylesheet" href="~/css/AgriConnectPlatformProject.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/edit.css" />
+    <style>
+        .navbar {
+            background-color: #228B22; /* Forest green */
+        }
+
+        .navbar-brand, .nav-link {
+            color: #fff !important;
+        }
+
+            .navbar-brand:hover, .nav-link:hover {
+                color: #c3e6cb !important; /* Light green */
+            }
+
+            .navbar-brand img {
+                height: 30px; /* Adjust the height as needed */
+                margin-right: 10px; /* Space between logo and text */
+            }
+
+        .nav-item .nav-link {
+            padding: .5rem 1rem; /* Adjust padding for better alignment */
+        }
+
+        .logout-button {
+            margin-left: auto; /* Pushes logout button to the right */
+        }
+
+        /* Ensure the form in the nav-item doesn't affect the layout */
+        .navbar .nav-item form {
+            display: inline;
+        }
+
+        .navbar-brand img {
+            height: 50px; /* Adjust the height as needed */
+            margin-right: 10px; /* Space between logo and text */
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="~/images/Logo.png" alt="Logo" /> AgriCulture
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                       @*  Approiate user roles, can only see allocated roles information *@
+                        @if (SignInManager.IsSignedIn(User))
+                        {
+                            var user = await UserManager.GetUserAsync(User);
+
+                            if (User.IsInRole("Super Admin"))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-area="" asp-controller="SuperAdmin" asp-action="ListAllRoles">Add Role</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-area="" asp-controller="Farmers" asp-action="Index">Farmers Profiles</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-area="" asp-controller="Products" asp-action="Index">Products</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-area="" asp-controller="Products" asp-action="List">Products Filtering</a>
+                                </li>
+                            }
+                            else if (User.IsInRole("Employee"))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-area="" asp-controller="Farmers" asp-action="Index">Farmers</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-area="" asp-controller="Products" asp-action="List">Products</a>
+                                </li>
+                            }
+                            else if (User.IsInRole("Farmer"))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-area="" asp-controller="Products" asp-action="Index">Products</a>
+                                </li>
+                            }
+                        }
+                    </ul>
+                    <ul class="navbar-nav logout-button">
+                        <li class="nav-item">
+                            
+                        </li>
+                    </ul>
+                </div>
+                <partial name="_LoginPartial" />
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+@*     linking styling *@
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

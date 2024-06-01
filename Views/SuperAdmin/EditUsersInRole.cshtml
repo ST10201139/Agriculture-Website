@@ -1,0 +1,113 @@
+﻿@using AgriConnectPlatformProject.ViewModels
+@model List<UserRoleViewModel>
+
+@{
+    var roleId = ViewData["roleId"];
+    var roleName = ViewData["roleName"];
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Users in Role</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            margin-top: 50px;
+            background: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .form-check {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .form-check-input {
+            margin-right: 10px;
+            transform: scale(1.2);
+        }
+
+        .form-check-label {
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+        .btn {
+            font-size: 1rem;
+            border-radius: 8px;
+            padding: 10px 20px;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .btn-success {
+            background-color: #28a745;
+            border-color: #28a745;
+        }
+
+            .btn-success:hover {
+                background-color: #218838;
+                border-color: #1e7e34;
+            }
+
+        .btn-warning {
+            background-color: #ffc107;
+            border-color: #ffc107;
+        }
+
+            .btn-warning:hover {
+                background-color: #e0a800;
+                border-color: #d39e00;
+            }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Edit Users in Role "@roleName"</h2>
+
+        <form method="post">
+            @for (int i = 0; i < Model.Count; i++)
+            {
+                <div class="form-check">
+                    <input type="hidden" asp-for="@Model[i].Id" />
+                    <input type="hidden" asp-for="@Model[i].Name" />
+                    <input asp-for="@Model[i].IsSelected" class="form-check-input" />
+                    <label class="form-check-label" asp-for="@Model[i].IsSelected">
+                        @Model[i].Name
+                    </label>
+                </div>
+            }
+
+            <div class="d-flex justify-content-between mt-4">
+                <a asp-action="EditRole" asp-route-id="@roleId" class="btn btn-warning"><i class="fas fa-angle-left"></i> Cancel</a>
+                <input type="submit" value="Update" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+﻿@model AgriConnectPlatformProject.Models.Farmer
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/details.css" />
+</head>
+<div class="details-page-container">
+    <div class="details-box">
+        <h1>Farmer Details</h1>
+        <div class="details-content">
+            <h4>Farmer Information</h4>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-4">Name:</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Name)</dd>
+                <dt class="col-sm-4">Address:</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Address)</dd>
+                <dt class="col-sm-4">Email:</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Email)</dd>
+                <dt class="col-sm-4">Password Hash:</dt>
+                <dd class="col-sm-8 hash-box">@Html.DisplayFor(model => model.PasswordHash)</dd>
+            </dl>
+            <div class="form-actions">
+                <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary">Edit</a>
+                <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,108 @@
+﻿/* General styling */
+body {
+   
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Container for the create page */
+.create-page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Form wrapper to center the form */
+.form-wrapper {
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+}
+
+/* Heading styles */
+h1 {
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+    color: #fff;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+h4 {
+    margin-bottom: 20px;
+    font-size: 1.75rem;
+    color: #333;
+}
+
+/* Form container styles */
+.form-container {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 1s ease-in-out;
+}
+
+/* Form group styles */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-control {
+    border-radius: 5px;
+    padding: 15px;
+    font-size: 1rem;
+    border: 1px solid #ced4da;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .form-control:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+    }
+
+/* Button styles */
+.create-btn {
+    background: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    width: 100%;
+    border-radius: 5px;
+}
+
+    .create-btn:hover {
+        background: #45a049;
+        transform: scale(1.05);
+    }
+
+/* Animation for form container */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    .form-container {
+        padding: 20px;
+    }
+
+    .form-control {
+        font-size: 0.875rem;
+    }
+
+    .create-btn {
+        font-size: 0.875rem;
+    }
+}
